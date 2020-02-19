@@ -1,0 +1,7 @@
+directories:
+  output: dist
+  buildResources: build
+mac:
+  icon: build/icons/icon.icns
+  target: pkg
+electronVersion: 2.0.18
