@@ -1,7 +1,13 @@
-# hackathon-template
+# Vuetify-Electron + Express
 
-> Hackathon Template
+### Overview
+This project is an Electron Desktop Application Template with VueJS + Veutify, and is connected to an ExpressJS Server on the backend.
 
+``` src/main ``` Renders the below
+
+``` src/renderer ``` is the VueJS + Veutify UI
+
+``` src/server ``` is the ExpressJS Server
 #### Build Setup
 
 ``` bash
@@ -13,7 +19,6 @@ npm run dev
 
 # build electron application for production
 npm run build
-
 
 ```
 
