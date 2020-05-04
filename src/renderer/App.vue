@@ -1,22 +1,21 @@
-import {ipcRenderer} from "electron";
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+  <v-app>
+    <router-view />
+  </v-app>
 </template>
 
 <script>
   import { ipcRenderer } from 'electron'
+  import { VApp } from 'vuetify/lib';
 
   export default {
-    name: 'hackathon-template',
+    name: 'app',
+    components: {
+      VApp
+    },
     beforeCreate() {
-      console.log('Starting server!')
-      ipcRenderer.send('start')
+      console.log('Starting server!');
+      ipcRenderer.send('start');
     }
   }
 </script>
-
-<style>
-  /* CSS */
-</style>

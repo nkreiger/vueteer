@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/hackathon-template.iml" filepath="$PROJECT_DIR$/.idea/hackathon-template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../vuetify-electron/.idea/pptr-desktop-automation.iml" filepath="$PROJECT_DIR$/../vuetify-electron/.idea/pptr-desktop-automation.iml" />
     </modules>
   </component>
 </project>

@@ -24,9 +24,9 @@ function createWindow () {
     useContentSize: true,
     width: 1000,
     webPreferences: { webSecurity: false }
-  })
+  });
 
-  mainWindow.loadURL(winURL)
+  mainWindow.loadURL(winURL);
 
   mainWindow.on('closed', () => {
     mainWindow = null
@@ -47,11 +47,11 @@ app.on('activate', () => {
   }
 })
 
-console.log('debug test')
+console.log('debug test');
 ipcMain.on('start', (event) => {
-  console.log('run start server command')
-  const server = path.join(__dirname, '..', 'server', 'server.js')
-  spawn(`node`, [server], {detached: true})
+  console.log('run start server command');
+  const server = path.join(__dirname, '..', 'server', 'server.js');
+  spawn(`node`, [server], {detached: true});
   event.sender.send('started')
 })
 

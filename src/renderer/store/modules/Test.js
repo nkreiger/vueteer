@@ -19,7 +19,7 @@ const mutations = {
 const actions = {
     async testExpressServer({ commit }, payload) {
         console.log('received: ', payload);
-        const res = await axios.get('http://localhost:5000/status/test', JSON.stringify({})).catch((err) => {
+        const res = await axios.get('http://localhost:3000/pptr/test').catch((err) => {
             if (err) {
                 console.log(err);
             }
