@@ -2,7 +2,9 @@
     <div>
         <!-- header-->
         <Header />
-        <router-view />
+        <v-app>
+            <router-view />
+        </v-app>
         <!-- footer -->
     </div>
 </template>

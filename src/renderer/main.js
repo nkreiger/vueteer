@@ -4,6 +4,7 @@ import axios from 'axios'
 
 // services
 import App from './App'
+import './global'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify';
