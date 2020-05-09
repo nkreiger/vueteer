@@ -1,19 +1,18 @@
 <template>
     <div class="row">
-        <div class="col-3">
-            <h3>Draggable 1</h3>
-            <draggable class="list-group" :list="list1" group="people" @change="log">
+        <div class="col-6">
+            <h3>COMMANDS</h3>
+            <draggable class="list-group red lighten-5 pa-1 pt-4" style="border-radius: 15px;" :list="commands" group="cmd" @change="log">
                 <div
                         class="list-group-item"
-                        v-for="(element, index) in list1"
-                        :key="element.name"
+                        v-for="(element, index) in commands"
+                        :key="element.id"
                 >
-                    {{ element.name }} {{ index }}
+                    <v-btn rounded color="primary" class="mb-4">
+                        {{ element.name }} {{ index }}
+                    </v-btn>
                 </div>
             </draggable>
-        </div>
-
-        <div class="col-3">
         </div>
     </div>
 </template>
@@ -29,11 +28,19 @@
         },
         data() {
             return {
-                list1: [
-                    { name: "John", id: 1 },
-                    { name: "Joao", id: 2 },
-                    { name: "Jean", id: 3 },
-                    { name: "Gerard", id: 4 }
+                commands: [
+                    { name: "Open Browser", id: 1 },
+                    { name: "Navigate To", id: 2 },
+                    { name: "Click", id: 3 },
+                    { name: "Open Browser", id: 4 },
+                    { name: "Navigate To", id: 5 },
+                    { name: "Click", id: 6 },
+                    { name: "Open Browser", id: 7 },
+                    { name: "Navigate To", id: 8 },
+                    { name: "Click", id: 9 },
+                    { name: "Open Browser", id: 10 },
+                    { name: "Navigate To", id: 11 },
+                    { name: "Click", id: 12 },
                 ]
             };
         },
@@ -50,8 +57,14 @@
                 };
             },
             log: function(evt) {
-                window.console.log(evt);
+               // window.console.log(evt);
             }
         }
     };
 </script>
+
+<style scoped>
+    .list-group {
+        border: 5px solid black;
+    }
+</style>

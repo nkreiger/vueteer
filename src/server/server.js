@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 const app = require('./app');
+// init JSStore
+require('./store');
 
 app.listen(3000, () => {
     console.log('App listening on port 3000!');

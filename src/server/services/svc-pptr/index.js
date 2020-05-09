@@ -6,8 +6,11 @@
  */
 
 /* Custom Dependencies */
-const { open } = require('./Browser');
+const { open, newPage } = require('./Browser');
+const { navigateTo } = require('./Page');
 
 module.exports = {
-    open
+    open,
+    newPage,
+    navigateTo
 };
