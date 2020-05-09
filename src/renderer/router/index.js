@@ -12,6 +12,10 @@ export default new Router({
         {
           path: '',
           component: () => import('@/pages/Landing.vue')
+        },
+        {
+          path: 'automation',
+          component: () => import('@/pages/AutomationPage.vue')
         }
       ]
     },

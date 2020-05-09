@@ -10,6 +10,6 @@ const routes = require('express').Router();
 const pptrControllers = require('../../controllers');
 
 routes.get('/test', pptrControllers.pptr.test);
-routes.get('/test/pptr', pptrControllers.pptr.pptrTest);
+routes.get('/open', pptrControllers.pptr.pptrTest);
 
 module.exports = routes;
