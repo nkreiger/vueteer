@@ -17,7 +17,7 @@
     "postinstall": ""
   },
   "build": {
-    "productName": "hackathon-template",
+    "productName": "pptr-desktop-atuomation",
     "appId": "com.example.yourapp",
     "directories": {
       "output": "build"
