@@ -14,6 +14,16 @@ const open = async () => {
     await setValue('page', pageId);
 };
 
+const close = async () => {
+    const ws = await getValue("browser");
+    const browser = await connect(ws);
+
+    await browser.close();
+
+    await setValue('browser', '');
+    await setValue('page', '');
+};
+
 const newPage = async () => {
     const ws = await getValue("browser");
     const browser = await connect(ws);
@@ -26,5 +36,6 @@ const newPage = async () => {
 
 module.exports = {
     open,
+    close,
     newPage
 };

@@ -11,5 +11,6 @@ const pptrControllers = require('../../controllers');
 
 routes.get('/test', pptrControllers.pptr.test);
 routes.get('/open', pptrControllers.pptr.pptrTest);
+routes.post('/', pptrControllers.pptr.handleCmds);
 
 module.exports = routes;

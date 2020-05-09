@@ -7,8 +7,10 @@
 
 /* Custom Dependencies */
 const { test, pptrTest } = require('./test');
+const { handleCmds } = require('./pptr');
 
 module.exports = {
     test,
-    pptrTest
+    pptrTest,
+    handleCmds
 };

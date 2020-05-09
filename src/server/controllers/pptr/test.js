@@ -9,32 +9,28 @@ const test = (req, res) => {
 };
 
 const pptrTest = async (req, res) => {
-    await pptr.open();
+    console.log(pptr.services.browser);
+    await pptr.services.browser.open();
+    await pptr.services.browser.newPage();
     await delay(500);
-    await pptr.navigateTo();
-    await delay(500);
-    await pptr.newPage();
-    await delay(500);
-    await pptr.navigateTo();
-    await delay(500);
-    await pptr.newPage();
-    await delay(500);
-    await pptr.navigateTo();
-    await delay(500);
-    await pptr.newPage();
-    await delay(500);
-    await pptr.navigateTo();
-    await delay(500);
-    await pptr.newPage();
-    await delay(500);
-    await pptr.navigateTo();
+    await pptr.services.page.navigateTo();
+    await pptr.services.browser.close();
     return res.send({
         msg: 'Ok'
     });
 };
 
+const handleCmds = async (req, res) => {
+    console.log(req.body);
+
+    return res.send({
+        msg: 'Ok'
+    })
+}
+
 
 module.exports = {
     test,
-    pptrTest
+    pptrTest,
+    handleCmds
 };

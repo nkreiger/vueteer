@@ -2,15 +2,21 @@
  * @module services/pptr
  * @description Returns all user controller modules for easy access
  * @requires services/pptr/Browser
- * @returns {Object}
+ * @returns {
+ *     id: "func_id"
+ *     value: function
+ * }
  */
 
 /* Custom Dependencies */
-const { open, newPage } = require('./Browser');
-const { navigateTo } = require('./Page');
+const browser = require('./Browser');
+const page = require('./Page');
+
+const services = {
+    browser,
+    page
+};
 
 module.exports = {
-    open,
-    newPage,
-    navigateTo
+    services
 };

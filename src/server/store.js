@@ -27,15 +27,6 @@ const getValue = async (key) => {
     )
 };
 
-async function test() {
-    let test = await getValue('browser');
-    console.log(test);
-}
-
-test().then(() => {
-    console.log('test done')
-});
-
 module.exports = {
     setValue,
     getValue
