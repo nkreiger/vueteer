@@ -8,10 +8,10 @@
                 <div
                         class="list-group-item"
                         v-for="(element, index) in commands"
-                        :key="element.id"
+                        :key="index"
                 >
                     <v-btn rounded color="primary" class="mb-4" @click="handleCmdClick(element)">
-                        {{ element.name }} {{ index }}
+                        {{ element.name }}
                     </v-btn>
                 </div>
             </draggable>
@@ -37,32 +37,8 @@
             handleCmdClick(e) {
                 console.log(e);
             },
-            add: function() {
-                this.list.push({ name: "Juan" });
-            },
-            replace: function() {
-                this.list = [{ name: "Edgard" }];
-            },
-            clone: function(el) {
-                return {
-                    name: el.name + " cloned"
-                };
-            },
-            log(event) {
-                if (event.added) {
-                    this.$store.dispatch('cmds/addOrRemoveCmd',
-                        {
-                            el: event.added.element,
-                            add: true }
-                            )
-                }
-                if (event.removed) {
-                    this.$store.dispatch('cmds/addOrRemoveCmd',
-                        {
-                            el: event.removed.element,
-                            add: false }
-                    )
-                }
+            async log(evt) {
+                this.$emit('handleChange', this.commands);
             }
         }
     };

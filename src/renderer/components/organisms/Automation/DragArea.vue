@@ -6,10 +6,10 @@
                 <div
                         class="list-group-item"
                         v-for="(element, index) in commands"
-                        :key="element.id"
+                        :key="index"
                 >
                     <v-btn rounded color="primary" class="mb-4">
-                        {{ element.name }} {{ index }}
+                        {{ element.name }}
                     </v-btn>
                 </div>
             </draggable>
@@ -29,18 +29,34 @@
         data() {
             return {
                 commands: [
-                    { name: "Open Browser", id: 1 },
-                    { name: "Navigate To", id: 2 },
-                    { name: "Click", id: 3 },
-                    { name: "Open Browser", id: 4 },
-                    { name: "Navigate To", id: 5 },
-                    { name: "Click", id: 6 },
-                    { name: "Open Browser", id: 7 },
-                    { name: "Navigate To", id: 8 },
-                    { name: "Click", id: 9 },
-                    { name: "Open Browser", id: 10 },
-                    { name: "Navigate To", id: 11 },
-                    { name: "Click", id: 12 },
+                    {
+                        name: "Open Browser",
+                        type: 'browser',
+                        cmd: {
+                            value: 'open'
+                        }
+                    },
+                    {
+                        name: "New Page",
+                        type: 'browser',
+                        cmd: {
+                            value: 'newPage'
+                        }
+                    },
+                    {
+                        name: "Close Browser",
+                        type: 'browser',
+                        cmd: {
+                            value: 'close'
+                        }
+                    },
+                    {
+                        name: "Navigate To",
+                        type: 'page',
+                        cmd: {
+                            value: 'navigateTo'
+                        }
+                    }
                 ]
             };
         },

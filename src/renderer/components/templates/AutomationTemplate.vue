@@ -7,7 +7,7 @@
             </v-col>
             <v-col col="8">
                 <!-- drag and drop command list -->
-                <drop-area />
+                <drop-area v-on:handleChange="setCmds" />
             </v-col>
         </v-row>
         <v-row class="sticky-bottom">
@@ -24,16 +24,20 @@
             'drag-area': require('@/components/organisms/Automation/DragArea').default,
             'drop-area': require('@/components/organisms/Automation/DropArea').default
         },
+        data: () => ({
+            cmds: []
+        }),
         methods: {
             executeCmds() {
-                const cmds = this.$store.getters['cmds/getCmds']
-                if (cmds.length !== 0) {
-                    this.$store.dispatch('cmds/executeCmds', cmds)
+                if (this.cmds.length !== 0) {
+                    this.$store.dispatch('cmds/executeCmds', {
+                        'cmds': this.cmds
+                    })
                 }
+            },
+            setCmds(cmds) {
+                this.cmds = cmds;
             }
-        },
-        mounted() {
-            this.$store.dispatch('cmds/setCmds', [])
         }
     }
 </script>
