@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3.7"
 
 services:
   redis:
@@ -11,3 +11,4 @@ services:
       - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
     environment:
       - REDIS_REPLICATION_MODE=master
+
