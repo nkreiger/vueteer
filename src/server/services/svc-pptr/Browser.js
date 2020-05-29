@@ -18,11 +18,14 @@ const open = async () => {
 
 const close = async () => {
     const ws = await getValue("browser");
-    const b = await connect(ws);
-    // remove from set
-    await remSet('browsers', ws)
+    const b = await connect(ws).catch(async (err) => {
+        if (err) await remSet('browsers', ws)
+    });
 
     await b.close();
+    
+    // remove from set
+    await remSet('browsers', ws)
 
     // get most recent browser if exists and set value
     const browsers = await getSet('browsers')

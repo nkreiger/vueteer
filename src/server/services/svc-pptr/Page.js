@@ -2,8 +2,6 @@ const puppeteer = require('puppeteer');
 const { connect, getPage } = require('./common');
 const { getValue } = require('../../store');
 
-
-
 const navigateTo = async (page, url='https://www.google.com/') => {
     const ws = await getValue('browser');
     const browser = await connect(ws);

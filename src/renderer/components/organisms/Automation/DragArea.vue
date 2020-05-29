@@ -56,6 +56,20 @@
                         cmd: {
                             value: 'navigateTo'
                         }
+                    },
+                    {
+                        name: "Type",
+                        type: 'element',
+                        cmd: {
+                            value: 'type'
+                        }
+                    },
+                    {
+                        name: "Click",
+                        type: 'element',
+                        cmd: {
+                            value: 'click'
+                        }
                     }
                 ]
             };
