@@ -27,7 +27,70 @@ const getValue = async (key) => {
     )
 };
 
+const setList = async (key, value) => {
+    return new Promise(resolve => {
+        client.rpush(['frameworks', 'js', 'angular'], (err, res) => {
+            if (err) console.error(err);
+            resolve(res)
+        })
+    })
+}
+
+const getList = async (key) => {
+    return new Promise(resolve => {
+        client.lrange(key, 0, -1, (err, res) => {
+            if (err) console.error(err);
+            resolve(res)
+        })
+    })
+}
+
+const addSet = async (key, value) => {
+    return new Promise(resolve => {
+        client.sadd([key, value], (err, res) => {
+            if (err) console.error(err);
+            resolve(res)
+        })
+    })
+}
+
+const getSet = async (key) => {
+    return new Promise(resolve => {
+        client.smembers(key, (err, res) => {
+            if (err) console.error(err);
+            resolve(res)
+        })
+    })
+}
+
+const remSet = async (key, value) => {
+    return new Promise(resolve => {
+        client.srem(key, value, (err, res) => {
+            if (err) console.error(err)
+            resolve(res)
+        })
+    })
+}
+
+
+async function testList() {
+    let res = await getSet('browsers')
+    console.log('browsers: ', res)
+}
+
+testList().then((res) => {
+    console.log(res)
+}).catch((err) => {
+    console.log(err)
+})
+
+
 module.exports = {
     setValue,
-    getValue
+    getValue,
+    setList,
+    getList,
+    addSet,
+    remSet,
+    getSet
 };

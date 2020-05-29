@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const { connect } = require('./common');
-const { setValue, getValue } = require('../../store');
+const { setValue, getValue, addSet, getSet, remSet } = require('../../store');
 
 const open = async () => {
     const browser = await puppeteer.launch({
@@ -10,17 +10,27 @@ const open = async () => {
     const pages = await browser.pages();
     const pageId = pages[0]._target._targetId;
 
+    // add browser to set
+    await addSet('browsers', browser.wsEndpoint())
     await setValue('browser', browser.wsEndpoint());
     await setValue('page', pageId);
 };
 
 const close = async () => {
     const ws = await getValue("browser");
-    const browser = await connect(ws);
+    const b = await connect(ws);
+    // remove from set
+    await remSet('browsers', ws)
 
-    await browser.close();
+    await b.close();
 
-    await setValue('browser', '');
+    // get most recent browser if exists and set value
+    const browsers = await getSet('browsers')
+    let browser = ''
+    if (browsers.length > 0) {
+        browser = browsers[browsers.length - 1]
+    }
+    await setValue('browser', browser);
     await setValue('page', '');
 };
 
