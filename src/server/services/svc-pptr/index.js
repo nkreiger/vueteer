@@ -10,10 +10,12 @@
 
 /* Custom Dependencies */
 const browser = require('./Browser');
+const element = require('./Element');
 const page = require('./Page');
 
 const services = {
     browser,
+    element,
     page
 };
 

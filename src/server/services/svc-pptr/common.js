@@ -14,7 +14,18 @@ const getPage = async (browser) => {
     return pages.find(p => p._target._targetId === pId);
 };
 
+const getElement = async (page, selector='#tsf > div:nth-child(2) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input') => {
+    const ws = await getValue('browser');
+    const browser = await connect(ws);
+    if (!page) {
+        page = await getPage(browser).catch((err) => console.error(err));
+    }
+
+    return await page.$(selector);
+}
+
 module.exports = {
     connect,
-    getPage
+    getPage,
+    getElement
 };
